@@ -1,0 +1,5 @@
+/moved-page
+/about-us   # now permanently at /company
+/shop      # now permanently at /store
+/contact   # now permanently at /get-in-touch
+/blog      # now permanently at /news

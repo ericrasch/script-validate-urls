@@ -1,0 +1,6 @@
+/
+/home
+/about
+/contact
+/products/widget-123
+/blog/latest-updates
