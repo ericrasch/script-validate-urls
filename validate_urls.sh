@@ -22,7 +22,8 @@
 #   - curl
 #
 # Behavior:
-#   - Creates/overwrites validation_results.csv with header:
+#   - Generates a timestamped CSV (e.g., validation_results_20250501_153045.csv)
+#     with header:
 #       URL,Expected,HTTP_Status,Result
 #   - For each valid list file:
 #       • Detects expected_status by extracting the first “XXX” in filename
@@ -33,8 +34,8 @@
 # Author: Eric Rasch
 #   GitHub: https://github.com/ericrasch/script-validate-urls
 # Created: 2025-04-21
-# Updated: 2025-04-21
-# Version: 1.1
+# Updated: 2025-05-01
+# Version: 1.3
 ################################################################################
 
 # ---- Parse list files (must end in .txt, extract status code from name) ----
@@ -63,8 +64,10 @@ if [[ ${#files[@]} -eq 0 ]]; then
   exit 1
 fi
 
-# ---- Initialize CSV ----
-output_csv="validation_results.csv"
+# ---- Generate timestamp for output file ----
+timestamp=$(date +'%Y%m%d_%H%M%S')
+output_csv="validation_results_${timestamp}.csv"
+
 echo "URL,Expected,HTTP_Status,Result" > "$output_csv"
 
 # ---- Function: check a single list ----
